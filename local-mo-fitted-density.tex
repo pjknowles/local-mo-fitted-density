@@ -108,16 +108,36 @@ Cite some papers\cite{Knizia2015}
 
 \section{Theory}
 
+The electrostatic potential arising from an arbitrary charge density $\rho$ is
 \begin{align}
     J[\rho] &= \int d\vec r' \rho(\vec r') |\vec r-\vec r'|^{-1}
 \end{align}
 
-\begin{align}
-  \vec r_i = \int d \vec r \,|\psi_i(\vec r)|^2 \,  \vec r
-\end{align}
+For a molecule represented by Hartree-Fock or Kohn-Sham theory
 \begin{align}
     \rho(\vec r) = \sum_A Z_A \delta(\vec r - \vec A)
     -\sum_i |\psi_i(\vec r)|^2
+\end{align}
+where $\vec A, Z_A$ denote the positions and charges of the nuclei, and
+$\{\psi_i\}$ are the occupied molecular orbitals.
+
+In the distributed multipole approach a simple approximation to the potential is
+obtained via  a model charge density consisting of point charges, dipole, and higher multipole, moments centred on the atoms.
+
+\begin{align}
+    \rho^{\text{DMA}}(\vec r)
+    &=
+    \sum_A \sum_{lm} C_{lmA} \,Q_{lm}(\vec r - \vec A)
+\end{align}
+where the multipole moments are defined as....
+
+leading to electrostatic potential....
+
+Localised orbitals
+
+Centroid
+\begin{align}
+  \vec r_i = \int d \vec r \,|\psi_i(\vec r)|^2 \,  \vec r
 \end{align}
 
 \begin{align}
