@@ -30,48 +30,26 @@
 %% when authors are associated with multiple institutions.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \author{Josh J. Kirsopp}
-%\altaffiliation{A shared footnote}
 \author{Athanasios Arvanitidis}
-%\altaffiliation{Current address: Some other place, Othert\"own,
-%Germany}
 \author{Peter J. Knowles}
-%\altaffiliation{A shared footnote}
 \email{KnowlesPJ@Cardiff.ac.uk}
-%\phone{+123 (0)123 4445556}
-%\fax{+123 (0)123 4445557}
 \affiliation[Cardiff University]
 {School of Chemistry, Cardiff University, Cardiff CF10 3AT, United Kingdom}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The document title should be given as usual. Some journals require
-%% a running title from the author: this should be supplied as an
-%% optional argument to \title.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % \title[Orbital-fitted density]
 %   {Approximating molecular electrostatic potentials through minimal representations of local molecular orbitals}
 \title[Reduced Orbital Potential Approximation]
   {Approximating molecular electrostatic potentials: the Reduced Orbital Potential Approximation}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Some journals require a list of abbreviations or keywords to be
-%% supplied. These should be set up here, and will be printed after
-%% the title and author information, if needed.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %\abbreviations{IR,NMR,UV}
 %\keywords{American Chemical Society, \LaTeX}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The manuscript does not need to include \maketitle, which is
-%% executed automatically.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{document}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The "tocentry" environment can be used to create an entry for the
-%% graphical table of contents. It is given here as some journals
-%% require that it is printed as part of the abstract page. It will
-%% be automatically moved as appropriate.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{tocentry}
 
 Some journals require a graphical entry for the Table of Contents.
@@ -92,19 +70,14 @@ separate page at the end of the document.
 
 \end{tocentry}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The abstract environment will automatically gobble the contents
-%% if an abstract is not used by the target journal.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{abstract}
   The abstract.
   Will define
   Distributed Multipole Analysis (DMA).
 \end{abstract}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Start the main part of the manuscript here.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \section{Introduction}
 Introduction
 
@@ -114,17 +87,18 @@ Cite some papers\cite{Knizia2015}
 
 \section{Theory}
 
-The electrostatic potential arising from an arbitrary charge density $\rho$ is
-\begin{align}
-    J[\rho] &= \int d\vec r' \rho(\vec r') |\vec r-\vec r'|^{-1}
-\end{align}
 For an $N$-electron molecule with electronic wavefunction $|\Psi\rangle$ the clamped-nucleus charge density is
 \begin{align}
     \rho(\vec r) = \sum_A Z_A \,\delta(\vec r - \vec A)
-    -N \,\langle\Psi|\delta(\vec r_1-\vec r)|\Psi\rangle
+    -N \,\langle\Psi|\delta(\vec r-\vec r_1)|\Psi\rangle
 \end{align}
 where $\vec A, Z_A$ denote the positions and charges of the nuclei, and
 $\vec r_1$ is the coordinate of one of the electrons.
+The electrostatic potential arising from this or any charge density $\rho$ is
+\begin{align}
+    J[\rho] &= \int d\vec r' \rho(\vec r') |\vec r-\vec r'|^{-1}
+\end{align}
+
 % The corresponding electrostatic potential is then
 % \begin{align}
     % V(\vec r) & =
@@ -190,11 +164,18 @@ Specification of a maximum angular momentum $L$, $0\le l\le L, -l\le m\le l$ is 
     +\sum_i \sum_{lm}^L(-1)^m\, Q^i_{lm}\, I_{lm}(\vec r - \vec r_i)
     .
 \end{align}
+Just as with DMA, this model is expected to be faithful, with a convergent series, when evaluated at positions that are sufficiently distant from any of the nuclei or orbital centroids, but omits the
+charge-penetration screening of the Coulomb interaction, and for very short $|\vec r-\vec r_i|$ or $|\vec r-\vec A|$ will give divergence. Unlike DMA, OMA is not dependent on any assumption that molecular densities are approximately the sum of near-spherical atomic densities. The localized molecular orbitals are natural centres of charge that arise automatically in the determination of the wavefunction, and there is no need for any construction based
+on basis-function centres\cite{Stone1981} or partitioning switch functions\cite{Stone2005DistributedSets.}.
 In Table 1, we show the exact $V(\vec r)$, together with
-$V^{\text{DMA},L}$
-$V^{\text{OMA},L}$ for several values of $L$, and for several $\vec r$ along the molecular axis of hydrogen fluoride. $\dots$.
+$V^{\text{DMA},L}$ and
+$V^{\text{OMA},L}$ for several values of $L$, and for several $\vec r$ along the molecular axis of carbon monoxide. $\dots$.
+
+OMA has more parameters than DMA, but maybe converges more quickly?
 
 Discuss construction of $\{\bar\psi_i\}$.
+
+Damping functions\cite{Koide1981a,Tang1984AnCoefficients,Knowles1986,Knowles1986a,Knowles1987a}
 
 Reduced Orbital Potential Approximation (ROPA) for the potential,
 \begin{align}
@@ -207,36 +188,17 @@ Reduced Orbital Potential Approximation (ROPA) for the potential,
 \end{align}
 \section{Evaluation}
 
-\subsection{A subsection}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The "Acknowledgement" section can be given in all manuscript
-%% classes.  This should be given within the "acknowledgement"
-%% environment, which will make the correct section or running title.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{acknowledgement}
 
 This work was funded by a Leverhulme Trust Research Project Grant.
 
 \end{acknowledgement}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The same is true for Supporting Information, which should use the
-%% suppinfo environment.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{suppinfo}
 
-This will usually read something like: ``Experimental procedures and
-characterization data for all new compounds. The class will
-automatically add a sentence pointing to the information on-line:
 
 \end{suppinfo}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% The appropriate \bibliography command should be placed here.
-%% Notice that the class file automatically sets \bibliographystyle
-%% and also names the section correctly.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \bibliography{reaction-orbitals}
 
 \end{document}
