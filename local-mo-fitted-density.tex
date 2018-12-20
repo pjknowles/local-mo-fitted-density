@@ -2,6 +2,11 @@
 
 \usepackage[version=3]{mhchem} % Formula subscripts using \ce{}
 
+\usepackage{xcolor,soul}
+\setlength\marginparwidth{1.5cm}
+\usepackage[obeyFinal,textsize=tiny, textwidth=\marginparwidth]{todonotes}
+\presetkeys{todonotes}{fancyline, color=blue!30}{}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% If issues arise when submitting your manuscript, you may want to
 %% un-comment the next line.  This provides information on the
@@ -172,7 +177,7 @@ charge-penetration screening of the Coulomb interaction, and for very short $|\v
 on basis-function centres\cite{Stone1981} or partitioning switch functions\cite{Stone2005DistributedSets.}.
 In Table~\ref{tab:1}, we show the exact $V(\vec r)$, together with
 $V^{\text{DMA},L}$ and
-$V^{\text{OMA},L}$ for several values of $L$, and for several $\vec r$ along the molecular axis of carbon monoxide.
+$V^{\text{OMA},L}$ for several values of $L$, and for several $\vec r$ along the molecular axis of carbon monoxide, corresponding to 1.5, 2.0 and 2.5 van der Waals radii from the nearest atom.
 \begin{table}[h]
     \centering
     \begin{tabular}{r|rrrr|}
@@ -182,13 +187,21 @@ $V^{\text{OMA},L}$ for several values of $L$, and for several $\vec r$ along the
         &$V^{\text{OMA,4}}$
         \\
         \hline
-         $-1.2$ & 
-         \\
+         $-14.361919$ & $-0.00061110$\\
+         $-7.180959 $ & $-0.00399768$\\
+         $-3.590480$ & $-0.02119799$ \\
+         $-2.872384$ & $-0.02433508$ \\
+         $-2.154288$ & $0.01165262$ \\
+         $4.002818$ & $0.04446287$\\
+         $4.626428$ & $-0.00623028$\\
+         $5.250037$ & $-0.01028582$\\
+         $8.368085$ & $-0.00249035$\\
+         $14.604181$ & $-0.00034611$\\
          \hline
     \end{tabular}
-    \caption{Caption}
+    \caption{Electrostatic potential at points along the molecular axis of CO arising from a B3LYP calculation with the aug-cc-pVQZ basis set. C is at the coordinate origin, and O at $z=2.131989$. }
     \label{tab:1}
-\end{table}
+\end{table}\todo{truncate decimals in table}
 $\dots$.
 
 OMA has more parameters than DMA, but maybe converges more quickly?
@@ -210,6 +223,7 @@ Reduced Orbital Potential Approximation (ROPA) for the potential,
 
 \begin{acknowledgement}
 
+We are grateful to Anthony Stone for helpful discussions.
 This work was funded by a Leverhulme Trust Research Project Grant.
 
 \end{acknowledgement}
